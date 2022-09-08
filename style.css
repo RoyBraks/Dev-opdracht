@@ -45,7 +45,7 @@ body{
 }
 @keyframes logo {
     15%  {opacity: 0%; font-size: 2500%; -webkit-text-stroke: 5px black;}
-    16%  {opacity: 100%;}
+    16%  {opacity: 0%;}
     59.9%  {opacity: 100%;-webkit-text-stroke: 5px black;}
     60%  {-webkit-text-stroke: transparent; opacity: 50%;}
     80%  {opacity: 100%;}
@@ -53,7 +53,14 @@ body{
     100%  {opacity: 0%; font-size: 1300%;}
 }
 #stripslidebox{
-    color: white;
+    position: absolute;
+    top: -100%;
+    left: 0;
+    
+}
+
+#stripslideboxunder{
+    top: 100px;
 }
 
 .stripslide{
@@ -61,4 +68,52 @@ body{
     top: 0;
     left: 0;
     display: inline-block;
+    transform-origin: top;
+    transform: scaleY(100%);
+    animation-name: stripfall;
+    animation-duration: 100ms;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-timing-function: linear;
+}
+
+.stripslideunder{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    animation-name: stripfallunder;
+    animation-duration: 100ms;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+}
+
+@keyframes stripfall {
+    0% {margin-top: 0vh; filter: blur(5px); transform: scaleY(1000%); opacity: 100%;}
+    10% {margin-top: 80vh; filter: blur(5px);transform: scaleY(400%); opacity: 100%;}
+    40% {margin-top: 100vh; filter: blur(3px);transform: scaleY(400%); opacity: 100%;}
+    50% {margin-top: 100vh; filter: blur(0px);transform: scaleY(100%); opacity: 100%;}
+    100% {margin-top: 100vh; filter: blur(0px);transform: scaleY(100%); opacity: 100%;}
+
+}
+@keyframes stripfallunder {
+    0% {filter: blur(0px);}
+    90% {filter: blur(0px);}
+} 
+
+.stripmain{
+    animation-name: fadestrip;
+    animation-duration: 14s;
+    opacity: 0%;
+}
+
+@keyframes fadestrip {
+    0%{opacity: 0%;} 
+    5%{opacity: 0%;} 
+    10%{opacity: 10%;} 
+    25%{opacity: 100%;} 
+    30%{opacity: 80%;} 
+    60%{opacity: 60%;} 
+    80%{opacity: 0%;} 
+    100%{opacity: 0%;} 
 }
